@@ -30,13 +30,14 @@ function Login() {
   return (
     <div className="bg-teal-dark w-screen h-screen flex items-center justify-center">
       <ToastContainer />
-      <div className="bg-teal-light p-8 rounded-lg shadow-lg flex items-center gap-2 w-8/12">
-        <div className="flex flex-col justify-center items-center w-1/2">
+      <div className="bg-teal-light p-8 rounded-lg shadow-lg flex items-center gap-2 md:w-9/12 w-10/12">
+        <div className="sm:flex flex-col justify-center items-center w-1/2 hidden">
           <img src={logo} alt="Logo" className="h-24" />
           <img src={meeting} alt="Meeting" className="h-72" />
         </div>
-        <Divider type="vertical" className="bg-white h-96" />
-        <form className="flex flex-col justify-center items-center gap-8 w-1/2">
+        <Divider type="vertical" className="bg-white h-96 hidden sm:block" />
+        <form className="flex flex-col justify-center items-center gap-8 sm:w-1/2 w-full">
+          <img src={logo} alt="Logo" className="h-20 sm:hidden block" />
           <p className="text-white text-4xl font-semibold">¡Bienvenido!</p>
 
           <Input
