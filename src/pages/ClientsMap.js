@@ -1,9 +1,8 @@
-import React, { memo, useState } from "react";
+import React, { useState } from "react";
 import {
   APIProvider,
   Map,
   Marker,
-  Pin,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
 import Header from "../components/Header";
