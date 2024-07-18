@@ -26,7 +26,7 @@ function Login() {
   return (
     <div className="bg-teal-dark w-screen h-screen flex items-center justify-center">
       <ToastContainer />
-      <div className="bg-teal-light p-8 rounded-lg shadow-md flex items-center gap-2 w-8/12">
+      <div className="bg-teal-light p-8 rounded-lg shadow-lg flex items-center gap-2 w-8/12">
         <div className="flex flex-col justify-center items-center w-1/2">
           <img src={logo} alt="Logo" className="h-24" />
           <img src={meeting} alt="Meeting" className="h-72" />
@@ -49,7 +49,7 @@ function Login() {
           />
           <button
             onClick={(e) => handleLogin(e)}
-            className="bg-blue-dark text-white font-bold text-xl rounded-lg my-4 w-10/12 py-3"
+            className="bg-blue-dark hover:bg-blue-950 text-white font-bold text-xl rounded-lg my-4 w-10/12 py-3"
           >
             Iniciar sesión
           </button>
