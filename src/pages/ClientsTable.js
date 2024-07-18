@@ -45,6 +45,7 @@ function ClientsTable() {
   const [data, setData] = useState(clients);
   const [searchText, setSearchText] = useState("");
 
+  //Redirect to login if user is not logged in
   useEffect(() => {
     if (!user) {
       navigate("/");
@@ -54,10 +55,13 @@ function ClientsTable() {
 
 
   useEffect(() => {
+    //Reset filter if search text is empty
     if (searchText === "") {
       setData(clients);
       return;
     }
+
+    //Filter clients by name
     const filteredData = clients.filter((client) =>
       client.name.toLowerCase().includes(searchText.toLowerCase())
     );
@@ -70,7 +74,6 @@ function ClientsTable() {
       <p className="text-3xl text-center font-bold my-4">Tabla de clientes</p>
       <SearchBar handleSearchText={setSearchText} />
       <div className="sm:px-24 px-4">
-        
         <Table
           locale={customLocale}
           bordered

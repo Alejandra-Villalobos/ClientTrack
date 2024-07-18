@@ -8,6 +8,7 @@ function Header() {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
 
+  //Logout function
   const handleLogout = () => {
     localStorage.removeItem("username");
     navigate("/");
@@ -43,8 +44,10 @@ function Header() {
           Cerrar sesión
         </button>
       </div>
+      {/* Show menu button on small screens */}
       <div className="sm:hidden pr-3" onClick={() => setShowMenu(!showMenu)}>
         <IoMdMenu size={30} color="white" />
+        {/* Menu on small screens */}
         {showMenu && (
           <div
             className={`z-50 absolute pt-4 top-12 right-0 bg-teal-dark w-full bg-opacity-80 backdrop-blur-sm h-full gap-4 flex flex-col items-center ${

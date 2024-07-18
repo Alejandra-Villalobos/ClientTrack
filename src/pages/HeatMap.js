@@ -14,6 +14,7 @@ function HeatMap() {
 
   const [map, setMap] = useState(null);
 
+  //Redirect to login if user is not logged in
   useEffect(() => {
     if (!user) {
       navigate("/");
@@ -21,12 +22,14 @@ function HeatMap() {
     // eslint-disable-next-line
   }, []);
 
+  //Load Google Maps API
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: "AIzaSyBjyM0CyjiksJbMk4SVzZTz-Uzn5QusoRE",
     libraries: ["visualization"],
   });
   const position = { lat: 13.6914, lng: -88.8821 };
 
+  //Show loading message while Google Maps API is loading
   if (!isLoaded) return <div>Cargando...</div>;
 
   return (

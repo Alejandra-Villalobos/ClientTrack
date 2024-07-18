@@ -6,6 +6,7 @@ import { MdCleaningServices } from "react-icons/md";
 function SearchBar({ handleSearchText }) {
   const [searchText, setSearchText] = useState("");
 
+  //Clear search text
   const handleClearSearch = () => {
     handleSearchText("");
     setSearchText("");

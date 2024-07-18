@@ -17,11 +17,13 @@ function ClientsMap() {
   const [open, setOpen] = useState(false);
   const [clientData, setClientData] = useState({});
 
+  //Open InfoWindow when clicking on a marker
   const handleOpen = (client) => {
     setOpen(true);
     setClientData(client);
   };
 
+  //Redirect to login if user is not logged in
   useEffect(() => {
     if (!user) {
       navigate("/");

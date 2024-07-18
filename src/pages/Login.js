@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../assets/logo.png";
-import meeting from "../assets/meeting.png";
 import meeting2 from "../assets/meeting-alt.jpg";
 import { user } from "../mock/users";
-import { Divider, Input } from "antd";
+import { Input } from "antd";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
-// <a href="https://www.freepik.com/free-vector/isometric-recruiting-icon-with-male-recruiter-communicating-with-two-job-candidates-round-office-table-3d-vector-illustration_23182633.htm#query=meeting%20png&position=1&from_view=keyword&track=ais_user&uuid=380dbd90-c442-4e82-87e2-482f7fc475a3">Image by macrovector</a> on Freepik
 
 function Login() {
   const navigate = useNavigate();
@@ -17,13 +14,17 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    //Login success
     if (username === user.username && password === user.password) {
-      toast.success("¡Inicio de sesión exitoso!");
       localStorage.setItem("username", JSON.stringify(user));
       navigate("/mapa");
-    } else if (username === "" || password === "") {
+    } 
+    //Fields empty
+    else if (username === "" || password === "") {
       toast.error("Por favor, rellene todos los campos");
-    } else {
+    } 
+    //Incorrect user or password
+    else {
       toast.error("Usuario o contraseña incorrectos");
     }
   };
