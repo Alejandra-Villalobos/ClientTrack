@@ -67,6 +67,7 @@ function ClientsTable() {
   return (
     <div className="bg-white flex flex-col justify-center">
       <Header />
+      <p className="text-3xl text-center font-bold my-4">Tabla de clientes</p>
       <SearchBar handleSearchText={setSearchText} />
       <div className="sm:px-24 px-4">
         

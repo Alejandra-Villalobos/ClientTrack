@@ -45,6 +45,11 @@ function HeatMap() {
               location: new window.google.maps.LatLng(client.lat, client.long),
               weight: 1,
             }))}
+            options={
+              {
+                radius: 20,
+              }
+            }
           />
         )}
       </GoogleMap>

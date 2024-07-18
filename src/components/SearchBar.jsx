@@ -29,7 +29,7 @@ function SearchBar({ handleSearchText }) {
         onClick={handleClearSearch}
         className="flex items-center gap-2 font-bold bg-blue-dark text-white px-3 py-3 rounded-lg ml-2 border-white border-2 shadow-md"
       >
-        <MdCleaningServices size={25} /> <p className="sm:display hidden">Limpiar búsqueda</p>
+        <MdCleaningServices size={25} /> <p className="hidden sm:block">Limpiar búsqueda</p>
       </button>
     </div>
   );
