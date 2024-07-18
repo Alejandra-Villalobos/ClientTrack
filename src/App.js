@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Map from "./pages/Map";
+import Map from "./pages/ClientsMap";
 import Login from "./pages/Login";
 
 function App() {
