@@ -1,4 +1,7 @@
-# ClientTrack
+<h1 align="center">ClientTrack</h1>
+
+| [Imágenes de pantallas](https://github.com/Alejandra-Villalobos/ClientTrack/tree/main/Pantallas) | [Manual de usuario](https://github.com/Alejandra-Villalobos/ClientTrack/wiki/Manual-de-usuario) | [Manual técnico](https://github.com/Alejandra-Villalobos/ClientTrack/wiki/Manual-técnico)
+
 ## Descripción
 
 Este proyecto es una aplicación desarrollada con React. Proporciona un listado de clientes en una tabla así como su ubicación en un mapa y su distribución en un mapa de calor
