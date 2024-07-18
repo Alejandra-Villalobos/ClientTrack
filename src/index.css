@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+table {
+    border: 2px solid #088395;
+}
+
+table thead.ant-table-thead .ant-table-cell {
+  background-color: #088395;
+  border: 2px solid #088395;
+  text-align: center;
+  color: white;
+  padding: 8px 2px;
+}
+
+table thead.ant-table-thead .ant-table-cell:first-child:hover {
+  background-color: #088395;
+}
+

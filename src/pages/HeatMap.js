@@ -1,39 +1,54 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import {
-  APIProvider,
-  Map,
-  useGoogleMap,
-} from "@vis.gl/react-google-maps";
+  GoogleMap,
+  HeatmapLayer,
+  useJsApiLoader,
+} from "@react-google-maps/api";
 import Header from "../components/Header";
 import { clients } from "../mock/clients";
+import { useNavigate } from "react-router-dom";
 
 function HeatMap() {
-  const position = { lat: 13.6914, lng: -88.8821 };
-  const heatmapLayerRef = useRef(null);
+  const navigate = useNavigate();
+  const user = localStorage.getItem("username");
+
+  const [map, setMap] = useState(null);
 
   useEffect(() => {
-    if (heatmapLayerRef.current) {
-      const data = clients.map((client) => new window.google.maps.LatLng(client.lat, client.long));
-      heatmapLayerRef.current.setData(data);
+    if (!user) {
+      navigate("/");
     }
+    // eslint-disable-next-line
   }, []);
 
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: "AIzaSyBjyM0CyjiksJbMk4SVzZTz-Uzn5QusoRE",
+    libraries: ["visualization"],
+  });
+  const position = { lat: 13.6914, lng: -88.8821 };
+
+  if (!isLoaded) return <div>Cargando...</div>;
+
   return (
-    <APIProvider apiKey="AIzaSyBjyM0CyjiksJbMk4SVzZTz-Uzn5QusoRE">
-      <div style={{ width: "100vw", height: "93vh" }}>
-        <Header />
-        <Map
-          defaultZoom={9}
-          defaultCenter={position}
-          onLoad={(map) => {
-            heatmapLayerRef.current = new window.google.maps.visualization.HeatmapLayer({
-              data: clients.map(client => new window.google.maps.LatLng(client.lat, client.long)),
-              map: map,
-            });
-          }}
-        />
-      </div>
-    </APIProvider>
+    <div style={{ width: "100vw", height: "93vh" }}>
+      <Header />
+
+      <GoogleMap
+        mapContainerStyle={{ width: "100%", height: "100%" }}
+        center={position}
+        zoom={9}
+        onLoad={(map) => setMap(map)}
+      >
+        {map && (
+          <HeatmapLayer
+            data={clients.map((client) => ({
+              location: new window.google.maps.LatLng(client.lat, client.long),
+              weight: 1,
+            }))}
+          />
+        )}
+      </GoogleMap>
+    </div>
   );
 }
 

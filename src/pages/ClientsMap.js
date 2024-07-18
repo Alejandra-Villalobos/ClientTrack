@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   APIProvider,
   Map,
   Marker,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { clients } from "../mock/clients";
 
 function ClientsMap() {
+  const navigate = useNavigate();
+  const user = localStorage.getItem("username");
+  
   const position = { lat: 13.6914, lng: -88.8821 };
   const [open, setOpen] = useState(false);
   const [clientData, setClientData] = useState({});
@@ -17,6 +21,13 @@ function ClientsMap() {
     setOpen(true);
     setClientData(client);
   };
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <APIProvider apiKey="AIzaSyBjyM0CyjiksJbMk4SVzZTz-Uzn5QusoRE">
