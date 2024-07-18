@@ -25,6 +25,7 @@ function ClientsMap() {
 
   //Redirect to login if user is not logged in
   useEffect(() => {
+    console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
     if (!user) {
       navigate("/");
     }
@@ -32,7 +33,7 @@ function ClientsMap() {
   }, []);
 
   return (
-    <APIProvider apiKey="AIzaSyBjyM0CyjiksJbMk4SVzZTz-Uzn5QusoRE">
+    <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
       <div style={{ width: "100vw", height: "93vh" }}>
         <Header />
         <Map defaultZoom={9} defaultCenter={position}>

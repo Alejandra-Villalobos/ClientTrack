@@ -24,7 +24,7 @@ function HeatMap() {
 
   //Load Google Maps API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyBjyM0CyjiksJbMk4SVzZTz-Uzn5QusoRE",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries: ["visualization"],
   });
   const position = { lat: 13.6914, lng: -88.8821 };
